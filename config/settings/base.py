@@ -9,7 +9,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
-ADMINS = config("ADMINS", cast=Csv(lambda v: tuple(v.split(",")), delimiter="\n"))
+ADMINS = config("ADMINS", cast=Csv(lambda v: tuple(s for s in v.split(",")), delimiter=" "))
 
 INSTALLED_APPS = [
     "django.contrib.admin",

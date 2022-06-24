@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     # my apps
     "apps.core.apps.CoreConfig",
     "apps.accounts.apps.AccountsConfig",
+    "apps.people.apps.PeopleConfig",
 ]
 
 MIDDLEWARE = [

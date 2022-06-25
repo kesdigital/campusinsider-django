@@ -34,7 +34,7 @@ class ProfileAdmin(admin.ModelAdmin):
                 )
             },
         ),
-        ("Roles", {"fields": ("main_role", "roles")}),
+        ("Roles", {"fields": ("main_role", "other_roles")}),
     )
 
 

@@ -54,7 +54,7 @@ class Profile(TimestampedModel):
         related_name="main_profiles",
         help_text="The main role of the profile's owner in relation to the website, ie Admin, Founder, Sponsor",
     )
-    roles = models.ManyToManyField(to="Role", verbose_name="Other roles for this profile's owner", blank=True)
+    other_roles = models.ManyToManyField(to="Role", verbose_name="Other roles for this profile's owner", blank=True)
 
     class Meta(TimestampedModel.Meta):
         db_table = "profile"

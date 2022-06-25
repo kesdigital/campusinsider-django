@@ -7,10 +7,10 @@ from .models import Profile, Role
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ("roles",)
+        fields = ("other_roles",)
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
 
-        self.fields["roles"].widget = CheckboxSelectMultiple()
-        self.fields["roles"].queryset = Role.objects.all()
+        self.fields["other_roles"].widget = CheckboxSelectMultiple()
+        self.fields["other_roles"].queryset = Role.objects.all()

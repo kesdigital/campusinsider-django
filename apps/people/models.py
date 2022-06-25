@@ -74,7 +74,7 @@ class Profile(TimestampedModel):
 
         # generate slug
         if not self.slug:
-            self.slug = slugify(self.username)
+            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
 

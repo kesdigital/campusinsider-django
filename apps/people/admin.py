@@ -7,12 +7,14 @@ from .models import FeaturedProfile, Profile, Role
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
     list_display = ("name", "created_at", "updated_at")
+    prepopulated_fields = {"slug": ("name",)}
 
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("name", "main_role")
     form = ProfileForm
+    prepopulated_fields = {"slug": ("name",)}
     fieldsets = (
         (
             "Info",

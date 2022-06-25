@@ -1,8 +1,11 @@
+import tempfile
+
 from django.core.files.images import ImageFile
 from django.core.files.temp import NamedTemporaryFile
 
 import tinify
 from decouple import config
+from PIL import Image
 
 
 def optimize_image(image: ImageFile, width: int, height: int, method: str) -> ImageFile:
@@ -64,3 +67,14 @@ def optimize_image(image: ImageFile, width: int, height: int, method: str) -> Im
     image.flush()
     optimized_image = ImageFile(image)
     return optimized_image
+
+
+def get_test_image_file() -> str:
+    """Creates a temporary image for testing models with ImageField
+
+    Returns:
+        str: file path representing the location of the temporary image
+    """
+    image_file_path = NamedTemporaryFile(delete=False)
+    Image.new("RGB", (150, 150), "white").save(image_file_path, "png")
+    return image_file_path.name

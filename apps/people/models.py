@@ -60,7 +60,7 @@ class Profile(TimestampedModel):
         db_table = "profile"
 
     def __str__(self) -> str:
-        return str(self.username)
+        return str(self.name)
 
     def save(self, *args, **kwargs):
         # optimize avatar

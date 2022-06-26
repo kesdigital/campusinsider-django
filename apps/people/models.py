@@ -65,7 +65,7 @@ class Profile(TimestampedModel):
     def save(self, *args, **kwargs):
         # optimize avatar
         try:
-            optimized_avatar = optimize_image(self.avatar, width=150, height=150, method="thumb")
+            optimized_avatar = optimize_image(self.avatar, width=150, height=150, method="cover")
         except Exception as e:
             print(e)
             print("Error occurred when optimizing avatar")
@@ -86,4 +86,4 @@ class FeaturedProfile(TimestampedModel):
         db_table = "featured_profile"
 
     def __str__(self):
-        return f"Featuring {self.profile.username}"
+        return f"Featuring {self.profile.name}"

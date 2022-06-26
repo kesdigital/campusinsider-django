@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Campus Insider | Your independent source of campus news, events, people......</title>
+{% endblock head %}
+
+{% block main %}
+<main>
+
+  <section class="featured_people">
+
+    <div class="featured_people__header">
+      <h2>FEATURED PEOPLE</h2>
+      <p><a href="#">SEE MORE >>></a></p>
+    </div>
+
+    {% if featured_profiles %}
+      <div class="featured_people__container">
+        {% for featured in featured_profiles %}
+
+          <article>
+            <a href="#">
+              <img src="{{ featured.profile.avatar.url }}" alt="{{ featured.profile.name }}">
+            </a>
+            <p>
+              <a href="#">
+                {{ featured.profile.name | truncatechars:12}}
+              </a>
+            </p>
+          </article>
+
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No people have been featured yet.</p>
+    {% endif %}
+
+  </section>
+
+</main>
+{% endblock main %}

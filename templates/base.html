@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   {% block head %}{% endblock head %}
 </head>
 <body>
@@ -27,6 +28,24 @@
         <li><a href="{% url "people:profile_list" %}">People</a></li>
       </ul>
     </nav>
+
+    <ul class="header__socials">
+      <li>
+        <a href="#">
+          <i class="ri-twitter-fill ri-xl"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="ri-instagram-fill ri-xl"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="ri-facebook-fill ri-xl"></i>
+        </a>
+      </li>
+    </ul>
 
   </header>
   {% endblock nav %}

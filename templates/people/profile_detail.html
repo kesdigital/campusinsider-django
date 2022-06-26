@@ -1,12 +1,73 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Campus Insider | {{ profile.name }}</title>
+  <title>Campus Insider | {{ profile.name }}</title>
 {% endblock head %}
 
 {% block main %}
-<main>
-  <img src="{{ profile.avatar.url }}" alt="{{ profile.name }}">
-  <h1>{{ profile.name }}</h1>
-</main>
+  <main class="profile">
+    <section class="profile__intro">
+
+      <img src="{{ profile.avatar.url }}" alt="{{ profile.name }}">
+      <h1>{{ profile.name }}</h1>
+
+      {% if profile.campus %}
+        <div class="campus-chip">
+          <i class="ri-map-pin-fill"></i>
+          <p>{{ profile.campus.name }}</p>
+        </div>
+      {% endif %}
+
+    </section>
+
+    <section class="profile__details">
+      {% if profile.course %}
+        <p>Course: {{ profile.course }}</p>
+      {% endif %}
+      <p>Role at Campus Insider: {{ profile.main_role.name }}</p>
+      {% if profile.other_roles %}
+      <h2>Other roles</h2>
+        <ul>
+          {% for role in profile.other_roles.all %}
+            <li>{{ role.name }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>None</p>
+      {% endif %}
+
+      <h2>Socials</h2>
+      {% if profile.twitter_url %}
+        <div class="social-container">
+          <i class="ri-twitter-fill ri-xl"></i>
+          <p><a href="{{ profile.twitter_url}}">@{{profile.twitter_username}}</a></p>
+        </div>
+      {% endif %}
+
+      {% if profile.instagram_url %}
+        <div class="social-container">
+          <i class="ri-instagram-fill ri-xl"></i>
+          <p><a href="{{ profile.instagram_url}}">{{profile.instagram_username}}</a></p>
+        </div>
+      {% endif %}
+
+      {% if profile.facebook_url %}
+        <div class="social-container">
+          <i class="ri-facebook-fill ri-xl"></i>
+          <p><a href="{{ profile.facebook_url}}">{{profile.facebook_username}}</a></p>
+        </div>
+      {% endif %}
+
+      {% if profile.public_email %}
+        <div class="social-container">
+          <i class="ri-mail-fill ri-xl"></i>
+          <p><a href="mailto:{{ profile.public_email}}">{{profile.public_email}}</a></p>
+        </div>
+      {% endif %}
+    </section>
+    <section class="profile__bio">
+      <h2>Bio</h2>
+      <p>{{ profile.bio }}</p>
+    </section>
+  </main>
 {% endblock main %}

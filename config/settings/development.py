@@ -6,10 +6,15 @@ DEBUG = True
 
 # Development specific apps
 
-INSTALLED_APPS += []
+INSTALLED_APPS += ["debug_toolbar"]
 
 # Development specific middleware
 
+MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 # Database definition
 
 DATABASE_URL = config("DATABASE_URL")

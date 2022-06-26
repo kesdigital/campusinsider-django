@@ -2,6 +2,7 @@ import os
 import uuid
 
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
@@ -61,6 +62,9 @@ class Profile(TimestampedModel):
 
     def __str__(self) -> str:
         return str(self.name)
+
+    def get_absolute_url(self):
+        return reverse("people:profile_detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         # optimize avatar

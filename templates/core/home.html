@@ -19,11 +19,11 @@
         {% for featured in featured_profiles %}
 
           <article>
-            <a href="#">
+            <a href="{{ featured.profile.get_absolute_url }}">
               <img src="{{ featured.profile.avatar.url }}" alt="{{ featured.profile.name }}">
             </a>
             <p>
-              <a href="#">
+              <a href="{{ featured.profile.get_absolute_url }}">
                 {{ featured.profile.name | truncatechars:12}}
               </a>
             </p>

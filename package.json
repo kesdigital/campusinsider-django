@@ -1,0 +1,17 @@
+{
+  "name": "campusinsider",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <h1>Campus Insider</h1> </div>",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidshindra/campusinsider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidshindra/campusinsider/issues"
+  },
+  "homepage": "https://github.com/davidshindra/campusinsider#readme"
+}

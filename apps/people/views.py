@@ -2,7 +2,7 @@ from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-from .models import Profile, FeaturedProfile
+from .models import FeaturedProfile, Profile
 
 
 class ProfileListView(View):

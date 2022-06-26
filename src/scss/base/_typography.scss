@@ -1,0 +1,37 @@
+@use "./mixins";
+
+:root {
+  // font family
+  --ff-mono: monospace;
+  --ff-serif: "Merriweather", serif;
+  --ff-sans: "Roboto", Helvetica, Arial, sans-serif;
+
+  // line height
+  --lh-no: 1.6;
+  --lh-lg: 1.8;
+
+  // font size
+  font-size: 62.5%;
+  --fs-sm: 1.4rem;
+  --fs-no: 1.6rem;
+  --fs-md: 1.8rem;
+  --fs-lg: 2.2rem;
+  --fs-xl: 2.4rem;
+
+  @include mixins.screen-md {
+    --fs-no: 1.8rem;
+    --fs-md: 2rem;
+    --fs-lg: 2.4rem;
+    --fs-xl: 2.8rem;
+  }
+
+  @include mixins.screen-lg {
+    --fs-xl: 3rem;
+  }
+}
+
+body {
+  line-height: var(--lh-no);
+  font-size: var(--fs-no);
+  font-family: var(--ff-sans);
+}

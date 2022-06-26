@@ -1,13 +1,15 @@
 from django.http import Http404, HttpRequest, HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.views import View
 
-from .models import Profile
+from .models import Profile, FeaturedProfile
 
 
 class ProfileListView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, "people/profile_list.html")
+        featured_profiles = FeaturedProfile.objects.select_related("profile")[:8]
+        context = {"featured_profiles": featured_profiles}
+        return render(request, "people/profile_list.html", context)
 
 
 class ProfileDetailView(View):

@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<main>
-  <h1>Profile list</h1>
-</main>
+  <main>
+    <h1>FEATURED PEOPLE</h1>
+    <section>
+      {% for featured in featured_profiles %}
+        <article>
+          <a href="{{ featured.profile.get_absolute_url }}">
+            <img src="{{ featured.profile.avatar.url }}" alt="{{ featured.profile.name }}">
+          </a>
+          <p>
+            <a href="{{ featured.profile.get_absolute_url }}">
+              {{ featured.profile.name | truncatechars:12 }}
+            </a>
+          </p>
+        </article>
+      {% endfor %}
+    </section>
+  </main>
 {% endblock main %}

@@ -4,11 +4,16 @@
   // font family
   --ff-mono: monospace;
   --ff-serif: "Merriweather", serif;
-  --ff-sans: "Roboto", Helvetica, Arial, sans-serif;
+  --ff-sans: "Montserrat", Helvetica, Arial, sans-serif;
 
   // line height
   --lh-no: 1.6;
   --lh-lg: 1.8;
+
+  // z-index
+  --zl: 0;
+  --zm: 100;
+  --zh: 999;
 
   // font size
   font-size: 62.5%;

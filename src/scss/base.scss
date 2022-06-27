@@ -1,3 +1,126 @@
+@use "./base/mixins";
+
 @import "./base/reset";
 @import "./base/theme";
 @import "./base/typography";
+@import "./base/layout";
+
+body {
+  margin-top: 8vh;
+}
+
+.header {
+  color: var(--nav-color);
+  background-color: var(--nav-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 8vh;
+  width: 100vw;
+  z-index: var(--zi-highest);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--body-padding-lr);
+
+  @include mixins.screen-lg {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
+.header__logo {
+  font-family: var(--ff-serif);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 0;
+  font-weight: 700;
+
+  &:hover {
+    color: var(--theme-red);
+  }
+}
+
+.header__nav {
+  position: absolute;
+  top: 8vh;
+  left: -100%;
+  width: 80vw;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--nav-bg);
+  transition: 0.3s;
+
+  @include mixins.screen-lg {
+    transition: 0s;
+    position: static;
+    flex-direction: row;
+    gap: 16px;
+    height: 100%;
+    width: 60%;
+  }
+
+  & > a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  &.active {
+    left: 0;
+  }
+
+  & > a:hover {
+    color: var(--theme-red);
+  }
+
+  & > a.current {
+    color: var(--theme-red);
+  }
+
+  & > ul {
+    display: flex;
+    gap: 32px;
+
+    li {
+      line-height: 0; // remove line-height causing improper alignment
+    }
+  }
+}
+
+.header__burger {
+  $bar-height: 4px;
+  width: 25px;
+  height: 5 * $bar-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mixins.screen-lg {
+    display: none;
+  }
+
+  & > .bar {
+    border-radius: 4px;
+    transition: 0.5s;
+    width: 100%;
+    height: $bar-height;
+    background-color: var(--nav-color);
+  }
+
+  &.active > .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.active > .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  &.active > .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

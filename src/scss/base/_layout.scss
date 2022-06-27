@@ -1,0 +1,9 @@
+@use "./mixins";
+
+:root {
+  --body-padding-lr: 1rem; // padding left and right
+
+  @include mixins.screen-md {
+    --body-padding-lr: 1.6rem;
+  }
+}

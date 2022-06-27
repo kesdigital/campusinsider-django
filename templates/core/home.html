@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block head %}
+<script src="{% static "js/home.min.js" %}" defer></script>
 <title>Campus Insider | Your independent source of campus news, events, people......</title>
 {% endblock head %}
 
@@ -11,7 +13,7 @@
 
     <div class="featured_people__header">
       <h2>FEATURED PEOPLE</h2>
-      <p><a href="{% url "people:profile_list" %}">SEE MORE >>></a></p>
+      <p><a href="{% url "people:profile_list" %}">SEE MORE</a></p>
     </div>
 
     {% if featured_profiles %}
@@ -24,7 +26,7 @@
             </a>
             <p>
               <a href="{{ featured.profile.get_absolute_url }}">
-                {{ featured.profile.name | truncatechars:12}}
+                {{ featured.profile.name | truncatechars:14}}
               </a>
             </p>
           </article>

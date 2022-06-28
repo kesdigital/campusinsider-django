@@ -44,10 +44,10 @@ class Article(TimestampedModel):
     article_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=160, unique=True)
     slug = models.SlugField(max_length=180, unique=True, blank=True)
-    thumb_nail = models.ImageField(upload_to=upload_thumb_nail_to)
+    thumb_nail = models.ImageField(upload_to=upload_thumb_nail_to)  #! change me to thumbnail
     author = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name="articles")
     content = models.TextField()  #! change to rich text
-    tags = models.ManyToManyField(to=Tag, related_name="articles")
+    tags = models.ManyToManyField(to=Tag, related_name="articles")  #! add blank=True
     status = models.CharField(max_length=2, choices=ARTICLE_STATUSES)
     published_at = models.DateTimeField(null=True, blank=True)
     is_featured = models.BooleanField(default=False)

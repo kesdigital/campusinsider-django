@@ -75,11 +75,11 @@ body {
   }
 
   & > a:hover {
-    color: var(--theme-red);
+    color: var(--brand-red);
   }
 
   & > a.current {
-    color: var(--theme-red);
+    color: var(--brand-red);
   }
 
   & > ul {

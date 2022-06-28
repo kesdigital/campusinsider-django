@@ -1,19 +1,53 @@
-.featured_people {
+@import "../components/article";
+
+@mixin section-spacing {
   padding: 2rem var(--body-padding-lr);
 }
 
-.featured_people__header {
+@mixin section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
 
-  h2 {
-    font-size: var(--fs-lg);
+@mixin section-title {
+  font-size: var(--fs-h2);
+}
+
+@mixin section-more {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+@mixin hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+  }
+}
+
+@mixin scroll-horizontally {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+.featured_people {
+  @include section-spacing();
+}
+
+.featured_people__header {
+  @include section-header();
+
+  &__title {
+    @include section-title();
   }
 
-  a {
-    font-size: var(--fs-sm);
-    color: var(--theme-red);
+  &__more {
+    @include section-more();
   }
 }
 
@@ -21,9 +55,11 @@
   padding: 1.6rem 0;
   display: flex;
   gap: 1.2rem;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
+  border-top: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray-300);
+  background-color: var(--bg-secondary);
+  @include scroll-horizontally();
+  @include hide-scrollbar();
 
   article {
     scroll-snap-align: center;
@@ -35,15 +71,88 @@
       width: max-content;
       height: max-content;
       font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--color-secondary);
 
       img {
-        padding: 0.4rem;
-        border: 1px solid currentColor;
+        padding: 0.2rem;
+        border: 2px solid currentColor;
         border-radius: 50%;
         width: 75px;
         height: 75px;
         background-size: contain;
       }
     }
+  }
+}
+
+.featured_articles {
+  @include section-spacing();
+  width: 100vw;
+}
+
+.featured_articles__header {
+  @include section-header();
+
+  &__title {
+    @include section-title();
+  }
+
+  &__more {
+    @include section-more();
+  }
+}
+
+// EVENTS
+
+.featured_events {
+  @include section-spacing();
+}
+
+.featured_events__header {
+  @include section-header();
+
+  &__title {
+    @include section-title();
+  }
+
+  &__more {
+    @include section-more();
+  }
+}
+
+// HANGOUTS
+
+.featured_hangouts {
+  @include section-spacing();
+}
+
+.featured_hangouts__header {
+  @include section-header();
+
+  &__title {
+    @include section-title();
+  }
+
+  &__more {
+    @include section-more();
+  }
+}
+
+// IN CINEMA
+
+.featured_in_cinema {
+  @include section-spacing();
+}
+
+.featured_in_cinema__header {
+  @include section-header();
+
+  &__title {
+    @include section-title();
+  }
+
+  &__more {
+    @include section-more();
   }
 }

@@ -1,0 +1,46 @@
+$padding: 1rem 0;
+
+.article {
+  width: 100%;
+  padding: $padding;
+  border-top: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray-300);
+  background-color: var(--bg-secondary);
+}
+
+.article__header {
+  width: 100%;
+
+  &__thumbnail {
+    width: 100%;
+  }
+
+  &__title {
+    color: var(--gray-800);
+    font-size: var(--fs-h3);
+    padding: $padding;
+    &:hover {
+      color: var(--brand-red);
+    }
+  }
+}
+
+.article__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--gray-600);
+  padding: $padding;
+
+  &__author {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__date {
+    font-weight: 400;
+  }
+}

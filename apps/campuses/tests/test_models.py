@@ -20,13 +20,25 @@ class TestCampusModel(TestCase):
         cambridge = Campus.objects.create(name="Cambridge")
         student = Role.objects.create(name="Student")
         Profile.objects.create(
-            name="Bill Gates", main_role=student, campus=harvard, bio="Founded Microsoft", avatar=get_test_image_file()
+            name="Bill Gates",
+            main_role=student,
+            campus=harvard,
+            bio="Founded Microsoft",
+            avatar=get_test_image_file(width=150, height=150),
         )
         Profile.objects.create(
-            name="Steve Jobs", main_role=student, campus=harvard, bio="Founded Apple", avatar=get_test_image_file()
+            name="Steve Jobs",
+            main_role=student,
+            campus=harvard,
+            bio="Founded Apple",
+            avatar=get_test_image_file(width=150, height=150),
         )
         Profile.objects.create(
-            name="Allan Turing", main_role=student, campus=cambridge, bio="Codebreaker", avatar=get_test_image_file()
+            name="Allan Turing",
+            main_role=student,
+            campus=cambridge,
+            bio="Codebreaker",
+            avatar=get_test_image_file(width=150, height=150),
         )
 
     @classmethod

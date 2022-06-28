@@ -69,12 +69,12 @@ def optimize_image(image: ImageFile, width: int, height: int, method: str) -> Im
     return optimized_image
 
 
-def get_test_image_file() -> str:
+def get_test_image_file(width: int, height: int) -> str:
     """Creates a temporary image for testing models with ImageField
 
     Returns:
         str: file path representing the location of the temporary image
     """
     image_file_path = NamedTemporaryFile(delete=False)
-    Image.new("RGB", (150, 150), "white").save(image_file_path, "png")
+    Image.new("RGB", (width, height), "white").save(image_file_path, "png")
     return image_file_path.name

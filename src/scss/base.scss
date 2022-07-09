@@ -3,92 +3,31 @@
 @import "./base/reset";
 @import "./base/theme";
 @import "./base/typography";
-@import "./base/sizing";
+@import "./base/layout";
 
 body {
   margin-top: var(--header-height);
 }
 
 .header {
-  color: var(--nav-color);
+  height: var(--header-height);
   background-color: var(--nav-bg);
+  color: var(--nav-color);
+  padding: 0 var(--body-padding-lr);
   position: fixed;
   top: 0;
   left: 0;
-  height: var(--header-height);
   width: 100vw;
-  z-index: var(--zi-highest);
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 0 var(--body-padding-lr);
-
-  @include mixins.screen-lg {
-    justify-content: space-between;
-    gap: 0;
-  }
+  justify-content: space-between;
 }
 
 .header__logo {
-  font-family: var(--ff-serif);
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 0;
-  font-weight: 700;
-
-  &:hover {
-    color: var(--theme-red);
-  }
-}
-
-.header__nav {
-  position: absolute;
-  top: 8vh;
-  left: -100%;
-  width: 80vw;
-  height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: var(--nav-bg);
-  transition: 0.3s;
-
-  @include mixins.screen-lg {
-    transition: 0s;
-    position: static;
-    flex-direction: row;
-    gap: 16px;
-    height: 100%;
-    width: 60%;
-  }
-
-  & > a {
-    // font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
-
-  &.active {
-    left: 0;
-  }
+  font-size: var(--fs-lg);
 
   & > a:hover {
     color: var(--brand-red);
-  }
-
-  & > a.current {
-    color: var(--brand-red);
-  }
-
-  & > ul {
-    display: flex;
-    gap: 32px;
-
-    li {
-      line-height: 0; // remove line-height causing improper alignment
-    }
   }
 }
 
@@ -105,7 +44,6 @@ body {
   }
 
   & > .bar {
-    border-radius: 4px;
     transition: 0.5s;
     width: 100%;
     height: $bar-height;
@@ -122,5 +60,49 @@ body {
 
   &.active > .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+.header__nav {
+  position: absolute;
+  top: var(--header-height);
+  left: -100%;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  background-color: var(--nav-bg);
+  transition: 0.3s;
+
+  @include mixins.screen-lg {
+    position: static;
+    height: 100%;
+    width: fit-content;
+    flex-direction: row;
+    font-size: var(--fs-no);
+    gap: 32px;
+    transition: 0s;
+  }
+
+  & > a:hover {
+    color: var(--brand-red);
+  }
+
+  &.active {
+    left: 0;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    line-height: 0;
+
+    & > li:hover {
+      color: var(--brand-red);
+    }
   }
 }

@@ -3,13 +3,12 @@
 :root {
   // font family
   --ff-mono: monospace;
-  --ff-serif: "Merriweather", serif;
-  --ff-sans: "Poppins", Helvetica, Arial, sans-serif;
+  --ff-serif: serif;
+  --ff-sans: "Nunito", Helvetica, Arial, sans-serif;
 
   // line height
-  --lh-no: 1.6;
-  --lh-lg: 1.8;
-
+  --heading-lh: 1.2;
+  --body-text-lh: 1.6;
   // z-index
   --zl: 0;
   --zm: 100;
@@ -29,10 +28,21 @@
     --fs-lg: 2.8rem;
     --fs-xl: 3.2rem;
   }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   line-height: var(--lh-no);
   font-size: var(--fs-no);
   font-family: var(--ff-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: var(--heading-lh);
 }

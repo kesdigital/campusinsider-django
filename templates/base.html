@@ -6,6 +6,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- STATIC -->
+  <script src="{% static "js/base.min.js" %}" defer></script>
   {% block head %}{% endblock head %}
 </head>
 <body>
@@ -19,11 +25,11 @@
         <span class="bar"></span>
       </div>
 
-      <nav>
+      <nav class="header__nav" id="nav">
         <a href="{% url 'core:home' %}">Home</a>
         <a href="#">Posts</a>
         <a href="#">Entertainment</a>
-        <ul>
+        <ul  class="header__nav__socials">
           <li><a href="#">{% include "icons/twitter.svg" %}</a></li>
           <li><a href="#">{% include "icons/facebook.svg" %}</a></li>
           <li><a href="#">{% include "icons/instagram.svg" %}</a></li>

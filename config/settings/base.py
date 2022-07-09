@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     # my apps
     "apps.core.apps.CoreConfig",
+    "apps.profiles.apps.ProfilesConfig",
     "apps.accounts.apps.AccountsConfig",
     "apps.campuses.apps.CampusesConfig",
 ]

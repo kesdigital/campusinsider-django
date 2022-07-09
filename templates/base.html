@@ -38,6 +38,15 @@
     </header>
   {% endblock nav %}
   {% block main %}{% endblock main %}
-  {% block footer %}{% endblock footer %}
+  {% block footer %}
+    <footer class="footer">
+      <ul  class="footer__socials">
+        <li><a href="#">{% include "icons/twitter.svg" %}</a></li>
+        <li><a href="#">{% include "icons/facebook.svg" %}</a></li>
+        <li><a href="#">{% include "icons/instagram.svg" %}</a></li>
+      </ul>
+      <p class="footer__copyright">&copy; {% now "Y" %} campusinsider</p>
+    </footer>
+  {% endblock footer %}
 </body>
 </html>

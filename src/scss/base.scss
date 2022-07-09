@@ -106,3 +106,22 @@ body {
     }
   }
 }
+
+// FOOTER
+
+$footer-color: var(--nav-color);
+$footer-bg: var(--nav-bg);
+
+.footer {
+  background-color: $footer-bg;
+  color: $footer-color;
+  text-align: center;
+  padding: 2rem var(--body-padding-lr);
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+  }
+}

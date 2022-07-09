@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     base: path.resolve(__dirname, "src/ts/base.ts"),
     home: path.resolve(__dirname, "src/ts/core/home.ts"),
+    profile_detail: path.resolve(__dirname, "src/ts/profiles/profile_detail.ts")
   },
   devtool: 'inline-source-map',
   output: {

@@ -22,9 +22,7 @@ INSTALLED_APPS = [
     # my apps
     "apps.core.apps.CoreConfig",
     "apps.accounts.apps.AccountsConfig",
-    "apps.people.apps.PeopleConfig",
     "apps.campuses.apps.CampusesConfig",
-    "apps.articles.apps.ArticlesConfig",
 ]
 
 MIDDLEWARE = [

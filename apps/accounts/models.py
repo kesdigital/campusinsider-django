@@ -14,9 +14,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(_("joined on"), auto_now_add=True)
-    profile = models.OneToOneField(
-        "people.Profile", related_name="user", blank=True, null=True, on_delete=models.SET_NULL
-    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

@@ -3,6 +3,7 @@
 {% load humanize %}
 
 {% block head %}
+<script src="{% static "js/home.min.js" %}" defer></script>
 <title>Campus Insider | Your independent source of campus news, events, people......</title>
 {% endblock head %}
 
@@ -11,7 +12,7 @@
 
   <section class="featured-profiles">
     <header class="featured-profiles__header">
-      <h2>Featured Profiles</h2>
+      <h2 class="featured-profiles__header__title">Featured Profiles</h2>
     </header>
     <div class="featured-profiles__container">
       {% for featured_profile in featured_profiles %}

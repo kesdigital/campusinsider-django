@@ -1,11 +1,11 @@
 @use "../base/mixins";
-@import "../components/article";
 
 @mixin section-spacing {
   padding: 2.8rem var(--body-padding-lr);
 }
 
 @mixin section-header {
+  padding: 0.6rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,23 +36,19 @@
   scroll-snap-type: x mandatory;
 }
 
-.featured_people {
+.featured-profiles {
   @include section-spacing();
 }
 
-.featured_people__header {
+.featured-profiles__header {
   @include section-header();
 
   &__title {
     @include section-title();
   }
-
-  &__more {
-    @include section-more();
-  }
 }
 
-.featured_people__container {
+.featured-profiles__container {
   padding: 1.6rem 0;
   display: flex;
   gap: 1.2rem;
@@ -82,6 +78,11 @@
         width: 75px;
         height: 75px;
         background-size: contain;
+
+        @include mixins.screen-lg {
+          width: 120px;
+          height: 120px;
+        }
       }
     }
   }

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{ profile.name }} | Campus Insider</title>
+{% endblock head %}
+
+{% block main %}
+<img src="{{ profile.avatar.url }}" alt="{{ profile.name }}">
+<p>{{ profile.name }}</p>
+{% endblock main %}

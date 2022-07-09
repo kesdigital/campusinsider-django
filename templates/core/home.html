@@ -16,8 +16,12 @@
     <div class="featured-profiles__container">
       {% for featured_profile in featured_profiles %}
         <article class="profile">
-          <img class="profile__avatar" src="{{ featured_profile.profile.avatar.url }}" alt="{{ featured_profile.profile.name }}">
-          <p class="profile__name">{{ featured_profile.profile.name }}</p>
+          <a href="{{ featured_profile.profile.get_absolute_url }}">
+            <img class="profile__avatar" src="{{ featured_profile.profile.avatar.url }}" alt="{{ featured_profile.profile.name }}">
+          </a>
+          <a href="{{ featured_profile.profile.get_absolute_url }}">
+            <p class="profile__name">{{ featured_profile.profile.name }}</p>
+          </a>
         </article>
       {% endfor %}
     </div>

@@ -13,12 +13,14 @@
 
 @mixin section-title {
   font-size: var(--fs-lg);
+  font-weight: 900;
 }
 
 @mixin section-more {
   font-weight: 700;
   font-size: var(--fs-sm);
   color: var(--brand-red);
+  text-transform: uppercase;
 }
 
 @mixin hide-scrollbar {
@@ -88,12 +90,14 @@
   }
 }
 
-.featured_articles {
+// FEATURED POSTS
+
+.featured-posts {
   @include section-spacing();
   width: 100vw;
 }
 
-.featured_articles__header {
+.featured-posts__header {
   @include section-header();
 
   &__title {
@@ -105,13 +109,65 @@
   }
 }
 
-.featured_articles__container {
+.featured-posts__container {
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
 
   @include mixins.screen-md {
     flex-direction: row;
+  }
+}
+
+$padding: 1.2rem;
+
+.post {
+  width: 100%;
+  padding: $padding;
+  border-top: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray-300);
+  background-color: var(--bg-secondary);
+  border-radius: 1.2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.post__header {
+  width: 100%;
+
+  &__thumbnail {
+    width: 100%;
+  }
+
+  &__title {
+    color: var(--gray-800);
+    font-weight: 700;
+    font-size: var(--fs-md);
+    padding: $padding;
+    &:hover {
+      color: var(--brand-red);
+    }
+  }
+}
+
+.post__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--gray-600);
+  padding: $padding;
+
+  &__author {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0.2rem;
+    border: 1px solid var(--color-secondary);
+  }
+
+  &__name {
+    font-weight: 700;
   }
 }
 
@@ -153,18 +209,19 @@
 
 // IN CINEMA
 
-.featured_in_cinema {
+.featured-in-cinema {
   border-top: 4px solid var(--brand-yellow);
   color: var(--gray-100);
   background-color: var(--gray-900);
   @include section-spacing();
 }
 
-.featured_in_cinema__header {
+.featured-in-cinema__header {
   @include section-header();
 
   &__title {
     @include section-title();
+    color: var(--gray-100);
   }
 
   &__more {

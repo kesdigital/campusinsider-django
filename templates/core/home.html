@@ -28,5 +28,36 @@
     </div>
   </section>
 
+  <section class="featured-posts">
+    <header class="featured-posts__header">
+      <h2 class="featured-posts__header__title">Featured Posts</h2>
+      <a class="featured-posts__header__more" href="#">More</a>
+    </header>
+
+    <div class="featured-posts__container">
+      {% for post in featured_posts %}
+        <article class="post">
+          <header class="post__header">
+            <img class="post__header__thumbnail" src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+            <h3 class="post__header__title">{{ post.title }}</h3>
+          </header>
+          <footer class="post__footer">
+            <img class="post__footer__author" src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.profile.name }}">
+            <p  class="post__footer__name">{{ post.author.profile.name }} - {{ post.published_at  | naturaltime }}</p>
+          </footer>
+        </article>
+      {% empty %}
+      <p>No posts have been featured yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="featured-in-cinema">
+    <header class="featured-in-cinema__header">
+      <h2 class="featured-in-cinema__header__title">In Cinema</h2>
+      <a class="featured-in-cinema__header__more" href="#">More</a>
+    </header>
+  </section>
+
 </main>
 {% endblock main %}

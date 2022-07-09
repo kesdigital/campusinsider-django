@@ -3,10 +3,10 @@
 @import "./base/reset";
 @import "./base/theme";
 @import "./base/typography";
-@import "./base/layout";
+@import "./base/sizing";
 
 body {
-  margin-top: 8vh;
+  margin-top: var(--header-height);
 }
 
 .header {
@@ -15,7 +15,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 8vh;
+  height: var(--header-height);
   width: 100vw;
   z-index: var(--zi-highest);
   display: flex;

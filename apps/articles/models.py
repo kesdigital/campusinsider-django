@@ -59,6 +59,9 @@ class Article(TimestampedModel):
             ("can_mark_article_as_featured", "Can mark article as featured"),
         ]
 
+    def __str__(self):
+        return str(self.title)
+
     def clean(self):
         if self.is_featured and self.status != self.PUBLISHED:
             raise ValidationError({"is_featured": _("Suspended, Draft or stale articles can't be featured")})

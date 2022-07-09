@@ -47,9 +47,9 @@
   --green-900: #1b5e20;
 
   // color
-  --color-primary: var(--gray-900); // important headings
-  --color-secondary: var(--gray-800); // dominant
-  --color-tertiary: var(--gray-600); //
+  --color-primary: var(--gray-900);
+  --color-secondary: var(--gray-800);
+  --color-tertiary: var(--gray-600);
   // background-color
   --bg-primary: var(--gray-50);
   --bg-secondary: var(--gray-100);
@@ -59,7 +59,8 @@
   --nav-color: var(--gray-200);
   // brand-colors
   --brand-red: var(--red-600);
-  --brand-yellow: var(--yellow-600);
+  --brand-yellow: var(--yellow-800);
+  --brand-green: var(--green-800);
 }
 
 body {

@@ -45,6 +45,7 @@
       <h2 class="featured_articles__header__title">ARTICLES</h2>
       <p class="featured_articles__header__more">SEE MORE</p>
     </header>
+    <div class="featured_articles__container">
     {% for article in featured_articles %}
       <article class="article">
         <header class="article__header">
@@ -71,6 +72,7 @@
       </article>
     {% empty %}
     {% endfor %}
+    </div>
   </section>
 
   <section class="featured_events">

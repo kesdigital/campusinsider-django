@@ -1,7 +1,8 @@
+@use "../base/mixins";
 @import "../components/article";
 
 @mixin section-spacing {
-  padding: 2rem var(--body-padding-lr);
+  padding: 2.8rem var(--body-padding-lr);
 }
 
 @mixin section-header {
@@ -11,18 +12,18 @@
 }
 
 @mixin section-title {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-lg);
 }
 
 @mixin section-more {
-  font-size: var(--fs-sm);
   font-weight: 700;
+  font-size: var(--fs-sm);
   color: var(--brand-red);
 }
 
 @mixin hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 
   &::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari and Opera */
@@ -103,6 +104,16 @@
   }
 }
 
+.featured_articles__container {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+
+  @include mixins.screen-md {
+    flex-direction: row;
+  }
+}
+
 // EVENTS
 
 .featured_events {
@@ -142,6 +153,9 @@
 // IN CINEMA
 
 .featured_in_cinema {
+  border-top: 4px solid var(--brand-yellow);
+  color: var(--gray-100);
+  background-color: var(--gray-900);
   @include section-spacing();
 }
 
@@ -154,5 +168,6 @@
 
   &__more {
     @include section-more();
+    color: var(--brand-yellow);
   }
 }

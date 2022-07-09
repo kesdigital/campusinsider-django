@@ -2,6 +2,7 @@ $padding: 1rem 0;
 
 .article {
   width: 100%;
+  min-width: min-content;
   padding: $padding;
   border-top: 1px solid var(--gray-300);
   border-bottom: 1px solid var(--gray-300);
@@ -17,7 +18,7 @@ $padding: 1rem 0;
 
   &__title {
     color: var(--gray-800);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-md);
     padding: $padding;
     &:hover {
       color: var(--brand-red);

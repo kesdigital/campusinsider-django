@@ -19,15 +19,15 @@
   font-size: 62.5%;
   --fs-sm: 1.4rem;
   --fs-no: 1.6rem;
-  --fs-md: 1.8rem;
-
-  --fs-h1: 3rem;
-  --fs-h2: 2.6rem;
-  --fs-h3: 2.2rem;
+  --fs-md: 2.2rem;
+  --fs-lg: 2.6rem;
+  --fs-xl: 3rem;
 
   @include mixins.screen-md {
     --fs-no: 1.8rem;
-    --fs-md: 2rem;
+    --fs-md: 2.4rem;
+    --fs-lg: 2.8rem;
+    --fs-xl: 3.2rem;
   }
 }
 

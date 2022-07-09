@@ -15,7 +15,7 @@
 
 @mixin screen-md {
   @media only screen and (min-width: variables.$screen-sm) {
-    // screens wider than 480px
+    // screens wider than 560px
     @content;
   }
 }

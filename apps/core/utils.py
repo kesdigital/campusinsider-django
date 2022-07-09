@@ -78,3 +78,38 @@ def get_test_image_file(width: int, height: int) -> str:
     image_file_path = NamedTemporaryFile(delete=False)
     Image.new("RGB", (width, height), "white").save(image_file_path, "png")
     return image_file_path.name
+
+
+def compress_image(image: ImageFile):
+    try:
+        API_KEY = config("TINYFY_API_KEY")
+        if not API_KEY:
+            raise Exception("Tinify API key missing")
+        tinify.key = API_KEY
+        image_bytes = tinify.from_buffer(image.file.read()).to_buffer()
+
+    except tinify.AccountError as e:
+        print("Verify your API key and account limit.")
+        raise (e)
+
+    except tinify.ClientError as e:
+        print("Check your source image and request options.")
+        raise (e)
+
+    except tinify.ServerError as e:
+        print("Temporary issue with the Tinify API.")
+        raise (e)
+
+    except tinify.ConnectionError as e:
+        print("A network connection error occurred.")
+        raise (e)
+
+    except Exception as e:
+        print("Something else went wrong, unrelated to the Tinify API.")
+        raise (e)
+
+    image = NamedTemporaryFile(delete=False)
+    image.write(image_bytes)
+    image.flush()
+    compressed_image = ImageFile(image)
+    return compressed_image

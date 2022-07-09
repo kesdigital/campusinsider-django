@@ -7,4 +7,10 @@
 {% block main %}
 <img src="{{ profile.avatar.url }}" alt="{{ profile.name }}">
 <p>{{ profile.name }}</p>
+
+{% if profile.photos %}
+  {% for photo in profile.photos.all %}
+    <img src="{{ photo.image.url }}" alt="">
+  {% endfor %}
+{% endif %}
 {% endblock main %}

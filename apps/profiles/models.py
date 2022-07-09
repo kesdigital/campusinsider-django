@@ -7,7 +7,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import TimestampedModel
-from apps.core.utils import optimize_image
+from apps.core.utils import compress_image, optimize_image
 
 
 def upload_avatar_to(instance, filename):
@@ -99,6 +99,16 @@ class Photo(TimestampedModel):
 
     def __str__(self) -> str:
         return str(f"Photo in {self.profile.name}'s gallery")
+
+    def save(self, *args, **kwargs):
+        try:
+            compressed_image = compress_image(self.image)
+        except Exception as e:
+            print(e)
+            print("Error occurred when optimizing avatar")
+        else:
+            self.image = compressed_image
+        super().save(*args, **kwargs)
 
     @property
     def is_portrait(self) -> bool:

@@ -6,4 +6,22 @@
 <title>Campus Insider | Your independent source of campus news, events, people......</title>
 {% endblock head %}
 
-{% block main %}{% endblock main %}
+{% block main %}
+<main>
+
+  <section class="featured-profiles">
+    <header class="featured-profiles__header">
+      <h2>Featured Profiles</h2>
+    </header>
+    <div class="featured-profiles__container">
+      {% for featured_profile in featured_profiles %}
+        <article class="profile">
+          <img class="profile__avatar" src="{{ featured_profile.profile.avatar.url }}" alt="{{ featured_profile.profile.name }}">
+          <p class="profile__name">{{ featured_profile.profile.name }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+{% endblock main %}

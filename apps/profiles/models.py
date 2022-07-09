@@ -93,6 +93,7 @@ class Photo(TimestampedModel):
     photo_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     profile = models.ForeignKey(to=Profile, related_name="photos", on_delete=models.CASCADE)
     image = models.ImageField(upload_to=upload_photo_to)
+    description = models.CharField(max_length=160, null=True)  #! remove null when resetting database
 
     class Meta(TimestampedModel.Meta):
         db_table = "photos"

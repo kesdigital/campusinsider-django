@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     "apps.accounts.apps.AccountsConfig",
     "apps.campuses.apps.CampusesConfig",
     "apps.entertainment.apps.EntertainmentConfig",
+    # 3rd party
+    "embed_video",
 ]
 
 MIDDLEWARE = [

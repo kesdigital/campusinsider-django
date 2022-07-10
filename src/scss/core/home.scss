@@ -113,6 +113,7 @@
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
+  flex-wrap: wrap;
 
   @include mixins.screen-md {
     flex-direction: row;
@@ -123,12 +124,13 @@ $padding: 1.2rem;
 
 .post {
   width: 100%;
+  max-width: 480px;
   padding: $padding;
   border-top: 1px solid var(--gray-300);
   border-bottom: 1px solid var(--gray-300);
   background-color: var(--bg-secondary);
   border-radius: 1.2rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .post__header {
@@ -136,6 +138,14 @@ $padding: 1.2rem;
 
   &__thumbnail {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+
+    @include mixins.screen-md {
+      height: 200px;
+    }
   }
 
   &__title {
@@ -173,11 +183,11 @@ $padding: 1.2rem;
 
 // EVENTS
 
-.featured_events {
+.featured-events {
   @include section-spacing();
 }
 
-.featured_events__header {
+.featured-events__header {
   @include section-header();
 
   &__title {
@@ -191,11 +201,11 @@ $padding: 1.2rem;
 
 // HANGOUTS
 
-.featured_hangouts {
+.featured-hangouts {
   @include section-spacing();
 }
 
-.featured_hangouts__header {
+.featured-hangouts__header {
   @include section-header();
 
   &__title {

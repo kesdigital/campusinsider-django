@@ -33,6 +33,9 @@
 }
 
 @mixin scroll-horizontally {
+  padding: 1.6rem 0;
+  display: flex;
+  gap: 1.2rem;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -51,9 +54,6 @@
 }
 
 .featured-profiles__container {
-  padding: 1.6rem 0;
-  display: flex;
-  gap: 1.2rem;
   border-top: 1px solid var(--gray-300);
   border-bottom: 1px solid var(--gray-300);
   background-color: var(--bg-secondary);
@@ -217,25 +217,69 @@ $padding: 1.2rem;
   }
 }
 
-// IN CINEMA
+// ON TV
 
-.featured-in-cinema {
-  border-top: 4px solid var(--brand-yellow);
-  color: var(--gray-100);
-  background-color: var(--gray-900);
+$color-primary: var(--gray-100);
+$yellow: var(--brand-yellow);
+$bg-primary: var(--gray-900);
+$bg-secondary: var(--gray-800);
+
+.on-tv {
+  border-top: 4px solid $yellow;
+  color: $color-primary;
+  background-color: $bg-primary;
   @include section-spacing();
-}
 
-.featured-in-cinema__header {
-  @include section-header();
+  &__header {
+    @include section-header();
 
-  &__title {
-    @include section-title();
-    color: var(--gray-100);
+    &__title {
+      @include section-title();
+      color: $color-primary;
+    }
+
+    &__more {
+      @include section-more();
+      color: $yellow;
+    }
   }
 
-  &__more {
-    @include section-more();
-    color: var(--brand-yellow);
+  &__container {
+    @include scroll-horizontally();
+
+    .show {
+      &__header {
+        &__poster {
+          width: 150px;
+
+          @include mixins.screen-md {
+            width: 200px;
+          }
+        }
+
+        &__rating {
+          color: $yellow;
+          font-size: var(--fs-sm);
+          font-weight: 700;
+        }
+
+        &__name {
+          color: $color-primary;
+          padding: 0.6rem 0;
+        }
+      }
+
+      &__footer {
+        &__cinema {
+          font-size: var(--fs-sm);
+          font-weight: 700;
+          background-color: $yellow;
+          width: fit-content;
+          padding: 0.3rem 0.8rem;
+          border-radius: 0.6rem;
+          margin: 0.3rem;
+        }
+      }
+    }
   }
 }

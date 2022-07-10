@@ -21,7 +21,7 @@
             <img class="profile__avatar" src="{{ featured_profile.profile.avatar.url }}" alt="{{ featured_profile.profile.name }}">
           </a>
           <a href="{{ featured_profile.profile.get_absolute_url }}">
-            <p class="profile__name">{{ featured_profile.profile.name }}</p>
+            <p class="profile__name">{{ featured_profile.profile.name | truncatechars:14 }}</p>
           </a>
         </article>
       {% endfor %}
@@ -52,11 +52,30 @@
     </div>
   </section>
 
-  <section class="featured-in-cinema">
-    <header class="featured-in-cinema__header">
-      <h2 class="featured-in-cinema__header__title">In Cinema</h2>
-      <a class="featured-in-cinema__header__more" href="#">More</a>
+  <section class="on-tv">
+    <header class="on-tv__header">
+      <h2 class="on-tv__header__title">On TV</h2>
+      <a class="on-tv__header__more" href="#">More</a>
     </header>
+
+    <div class="on-tv__container">
+      {% for show in on_tv %}
+        <article class="show">
+          <header class="show__header">
+            <img class="show__header__poster" src="{{ show.poster.url }}" alt="{{ show.name }}">
+            <span class="show__header__rating">{{ show.rating }}% rating</span>
+            <h3 class="show__header__name"><a href="{{ show.get_absolute_url }}">{{ show.name }}</a></h3>
+          </header>
+          <footer class="show__footer">
+            {% if show.in_cinema %}
+              {% for cinema in show.cinemas.all %}
+                <p class="show__footer__cinema">{{ cinema.name | truncatechars:16 }}</p>
+              {% endfor %}
+            {% endif %}
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
   </section>
 
   <section class="featured-events">

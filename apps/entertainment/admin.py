@@ -1,6 +1,8 @@
 from django.contrib import admin
 
-from .models import Cinema, Category, OnTV
+from embed_video.admin import AdminVideoMixin
+
+from .models import Category, Cinema, OnTV
 
 
 @admin.register(Cinema)
@@ -14,5 +16,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(OnTV)
-class OnTVAdmin(admin.ModelAdmin):
+class OnTVAdmin(AdminVideoMixin, admin.ModelAdmin):
     pass

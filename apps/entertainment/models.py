@@ -4,6 +4,7 @@ from uuid import uuid4
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
@@ -62,6 +63,9 @@ class OnTV(TimestampedModel):
 
     def __str__(self) -> str:
         return str(self.name)
+
+    def get_absolute_url(self):
+        return reverse("entertainment:show_detail", kwargs={"slug": self.slug})
 
     def clean(self):
         if self.in_cinema and not self.cinemas:

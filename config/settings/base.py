@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "apps.profiles.apps.ProfilesConfig",
     "apps.accounts.apps.AccountsConfig",
     "apps.campuses.apps.CampusesConfig",
+    "apps.entertainment.apps.EntertainmentConfig",
 ]
 
 MIDDLEWARE = [

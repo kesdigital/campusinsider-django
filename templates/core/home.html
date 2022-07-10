@@ -31,7 +31,7 @@
   <section class="featured-posts">
     <header class="featured-posts__header">
       <h2 class="featured-posts__header__title">Featured Posts</h2>
-      <a class="featured-posts__header__more" href="#">More</a>
+      <a class="featured-posts__header__more" href="{% url "posts:post_list" %}">More</a>
     </header>
 
     <div class="featured-posts__container">
@@ -52,17 +52,17 @@
     </div>
   </section>
 
-  <section class="featured-events">
-    <header class="featured-events__header">
-      <h2 class="featured-events__header__title">Events</h2>
-      <a class="featured-events__header__more" href="#">More</a>
-    </header>
-  </section>
-
   <section class="featured-in-cinema">
     <header class="featured-in-cinema__header">
       <h2 class="featured-in-cinema__header__title">In Cinema</h2>
       <a class="featured-in-cinema__header__more" href="#">More</a>
+    </header>
+  </section>
+
+  <section class="featured-events">
+    <header class="featured-events__header">
+      <h2 class="featured-events__header__title">Events</h2>
+      <a class="featured-events__header__more" href="#">More</a>
     </header>
   </section>
 

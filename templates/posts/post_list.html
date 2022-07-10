@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block head %}
 <title>Posts | Campus Insider.</title>
 {% endblock head %}
+
+{% block main %}
+<div class="post-list-container">
+  <main>
+    {% for post in posts %}
+    <article class="post">
+      <header class="post__header">
+        <img class="post__header__thumbnail" src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+        <h3 class="post__header__title">{{ post.title }}</h3>
+      </header>
+      <footer class="post__footer">
+        <img class="post__footer__author" src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.profile.name }}">
+        <p  class="post__footer__name">{{ post.author.profile.name }} - {{ post.published_at  | naturaltime }}</p>
+      </footer>
+    </article>
+    {% endfor %}
+  </main>
+  <aside class="sidebar">
+    <h2 class="sidebar__header">Popular Tags</h2>
+    {% for tag in tags %}
+      <p class="sidebar__tag">#{{ tag.name }}</p>
+    {% endfor %}
+  </aside>
+</div>
+{% endblock main %}

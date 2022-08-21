@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<script src="{% static "js/profile_detail.min.js" %}"></script>
+<title>{{ profile.name }} | Campus Insider</title>
+{% endblock head %}
+
+{% block main %}
+<main>
+  <div class="profile-detail__container">
+    <section class="profile">
+      <img class="profile__avatar" src="{{ profile.avatar.url }}" alt="{{ profile.name }}">
+      <h1 class="profile__name">{{ profile.name }} | <span>{{ profile.get_profile_type_display }}</span></h1>
+
+      <ul  class="profile__socials">
+        {% if profile.twitter_url and profile.twitter_username %}
+          <li><a target="_blank" href="{{ profile.twitter_url}}">{% include "icons/twitter.svg" with width="30" height="30" %}</a></li>
+        {% endif %}
+        {% if profile.instagram_url and profile.instagram_username %}
+          <li><a target="_blank" href="{{ profile.instagram_url}}">{% include "icons/instagram.svg" with width="30" height="30" %}</a></li>
+        {% endif %}
+        {% if profile.facebook_url and profile.facebook_username %}
+          <li><a target="_blank" href="{{ profile.facebook_url}}">{% include "icons/facebook.svg" with width="30" height="30" %}</a></li>
+        {% endif %}
+        {% if profile.public_phone_number %}
+          <li><a target="_blank" href="tel:{{ profile.public_phone_number}}">{% include "icons/phone.svg" with width="30" height="30" %}</a></li>
+        {% endif %}
+        {% if profile.public_email %}
+          <li><a target="_blank" href="mailto:{{ profile.public_email}}">{% include "icons/email.svg" with width="30" height="30" %}</a></li>
+        {% endif %}
+      </ul>
+
+    </section>
+  </div>
+
+  <section class="gallery">
+    {% for photo in profile.photos.all %}
+      <img src="{{ photo.image.url }}" alt="">
+    {% empty %}
+      <p>This profile has no images in its gallery.</p>
+    {% endfor %}
+  </section>
+{% endblock main %}
+</main>

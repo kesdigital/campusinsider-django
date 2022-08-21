@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./static/js",
+    "noImplicitAny": true,
+    "module": "es6",
+    "lib": [
+      "DOM"
+    ],
+    "target": "es5",
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
+  }
+}

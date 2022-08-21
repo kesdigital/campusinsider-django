@@ -1,0 +1,19 @@
+@use "./mixins";
+
+:root {
+  --body-padding-lr: 1rem; // padding left and right
+
+  @include mixins.screen-md {
+    --body-padding-lr: 3rem;
+  }
+
+  @include mixins.screen-lg {
+    --body-padding-lr: 4rem;
+  }
+
+  @include mixins.screen-xl {
+    --body-padding-lr: 5rem;
+  }
+
+  --header-height: 8vh;
+}

@@ -1,0 +1,42 @@
+@use "./variables";
+
+/*
+  Media queries
+  We will use mobile first design so we won't need a media query for a phone.
+*/
+
+@mixin screen-sm {
+  @media only screen and (max-width: variables.$screen-sm) {
+    // screens smaller than 480px
+    // probably won't be needed since we use mobile first design
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media only screen and (min-width: variables.$screen-sm) {
+    // screens wider than 560px
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media only screen and (min-width: variables.$screen-md) {
+    // screens wider than 768px
+    @content;
+  }
+}
+
+@mixin screen-xl {
+  // screens wider than 976px
+  @media only screen and (min-width: variables.$screen-lg) {
+    @content;
+  }
+}
+
+@mixin center {
+  // center vertically and vertically
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

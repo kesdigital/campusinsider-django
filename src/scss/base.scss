@@ -1,0 +1,127 @@
+@use "./base/mixins";
+
+@import "./base/reset";
+@import "./base/theme";
+@import "./base/typography";
+@import "./base/layout";
+
+body {
+  margin-top: var(--header-height);
+}
+
+.header {
+  height: var(--header-height);
+  background-color: var(--nav-bg);
+  color: var(--nav-color);
+  padding: 0 var(--body-padding-lr);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-size: var(--fs-lg);
+
+  & > a:hover {
+    color: var(--brand-red);
+  }
+}
+
+.header__burger {
+  $bar-height: 4px;
+  width: 25px;
+  height: 5 * $bar-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mixins.screen-lg {
+    display: none;
+  }
+
+  & > .bar {
+    transition: 0.5s;
+    width: 100%;
+    height: $bar-height;
+    background-color: var(--nav-color);
+  }
+
+  &.active > .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.active > .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  &.active > .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+.header__nav {
+  position: absolute;
+  top: var(--header-height);
+  left: -100%;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  background-color: var(--nav-bg);
+  transition: 0.3s;
+
+  @include mixins.screen-lg {
+    position: static;
+    height: 100%;
+    width: fit-content;
+    flex-direction: row;
+    font-size: var(--fs-no);
+    gap: 32px;
+    transition: 0s;
+  }
+
+  & > a:hover {
+    color: var(--brand-red);
+  }
+
+  &.active {
+    left: 0;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    line-height: 0;
+
+    & > li:hover {
+      color: var(--brand-red);
+    }
+  }
+}
+
+// FOOTER
+
+$footer-color: var(--nav-color);
+$footer-bg: var(--nav-bg);
+
+.footer {
+  background-color: $footer-bg;
+  color: $footer-color;
+  text-align: center;
+  padding: 2rem var(--body-padding-lr);
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+  }
+}

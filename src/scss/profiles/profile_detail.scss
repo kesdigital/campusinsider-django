@@ -1,0 +1,45 @@
+@use "../base/mixins";
+
+.profile {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  &__avatar {
+    padding: 0.2rem;
+    border: 2px solid var(--color-secondary);
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+
+    @include mixins.screen-lg {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+
+    & > span {
+      font-weight: 400;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.details {
+  h2 {
+    font-size: var(--fs-no);
+  }
+  &__socials {
+    font-size: var(--fs-md);
+  }
+}

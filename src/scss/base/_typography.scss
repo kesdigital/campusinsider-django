@@ -1,0 +1,48 @@
+@use "./mixins";
+
+:root {
+  // font family
+  --ff-mono: monospace;
+  --ff-serif: serif;
+  --ff-sans: "Nunito", Helvetica, Arial, sans-serif;
+
+  // line height
+  --heading-lh: 1.2;
+  --body-text-lh: 1.6;
+  // z-index
+  --zl: 0;
+  --zm: 100;
+  --zh: 999;
+
+  // font size
+  font-size: 62.5%;
+  --fs-sm: 1.4rem;
+  --fs-no: 1.6rem;
+  --fs-md: 2.2rem;
+  --fs-lg: 2.6rem;
+  --fs-xl: 3rem;
+
+  @include mixins.screen-md {
+    --fs-no: 1.8rem;
+    --fs-md: 2.4rem;
+    --fs-lg: 2.8rem;
+    --fs-xl: 3.2rem;
+  }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: var(--lh-no);
+  font-size: var(--fs-no);
+  font-family: var(--ff-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: var(--heading-lh);
+}

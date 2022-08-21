@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+
+{% block head %}
+<title>{{ show.name }} | campus insider</title>
+{% endblock head %}
+
+{% block main %}
+
+<div style="width: 100vw;">
+  {% video show.trailer '360 x 180' %}
+</div>
+
+{% endblock main %}

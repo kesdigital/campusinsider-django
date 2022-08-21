@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+<script src="{% static "js/home.min.js" %}" defer></script>
+<title>Campus Insider | Your independent source of campus news, events, people......</title>
+{% endblock head %}
+
+{% block main %}
+<main>
+
+  <section class="featured-profiles">
+    <header class="featured-profiles__header">
+      <h2 class="featured-profiles__header__title">Featured Profiles</h2>
+    </header>
+    <div class="featured-profiles__container">
+      {% for featured_profile in featured_profiles %}
+        <article class="profile">
+          <a href="{{ featured_profile.profile.get_absolute_url }}">
+            <img class="profile__avatar" src="{{ featured_profile.profile.avatar.url }}" alt="{{ featured_profile.profile.name }}">
+          </a>
+          <a href="{{ featured_profile.profile.get_absolute_url }}">
+            <p class="profile__name">{{ featured_profile.profile.name | truncatechars:14 }}</p>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="featured-posts">
+    <header class="featured-posts__header">
+      <h2 class="featured-posts__header__title">Featured Posts</h2>
+      <a class="featured-posts__header__more" href="{% url "posts:post_list" %}">More</a>
+    </header>
+
+    <div class="featured-posts__container">
+      {% for post in featured_posts %}
+        <article class="post">
+          <header class="post__header">
+            <img class="post__header__thumbnail" src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+            <h3 class="post__header__title">{{ post.title }}</h3>
+          </header>
+          <footer class="post__footer">
+            <img class="post__footer__author" src="{{ post.author.profile.avatar.url }}" alt="{{ post.author.profile.name }}">
+            <p  class="post__footer__name">{{ post.author.profile.name }} - {{ post.published_at  | naturaltime }}</p>
+          </footer>
+        </article>
+      {% empty %}
+      <p>No posts have been featured yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="on-tv">
+    <header class="on-tv__header">
+      <h2 class="on-tv__header__title">On TV</h2>
+      <a class="on-tv__header__more" href="#">More</a>
+    </header>
+
+    <div class="on-tv__container">
+      {% for show in on_tv %}
+        <article class="show">
+          <header class="show__header">
+            <img class="show__header__poster" src="{{ show.poster.url }}" alt="{{ show.name }}">
+            <span class="show__header__rating">{{ show.rating }}% rating</span>
+            <h3 class="show__header__name"><a href="{{ show.get_absolute_url }}">{{ show.name }}</a></h3>
+          </header>
+          <footer class="show__footer">
+            {% if show.in_cinema %}
+              {% for cinema in show.cinemas.all %}
+                <p class="show__footer__cinema">{{ cinema.name | truncatechars:16 }}</p>
+              {% endfor %}
+            {% endif %}
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="featured-events">
+    <header class="featured-events__header">
+      <h2 class="featured-events__header__title">Events</h2>
+      <a class="featured-events__header__more" href="#">More</a>
+    </header>
+  </section>
+
+</main>
+{% endblock main %}
